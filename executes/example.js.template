@@ -1,0 +1,10 @@
+module.exports = {
+    data: {
+        "name": "example", // Change exapmle for your custom interaction id.
+    },
+
+    async run(interaction) {
+        // Your code goes here. Here's an example on how to respond to an interaction.
+        return interaction.reply('Pong')
+    }
+}
