@@ -2,6 +2,10 @@
 
 The base for Discord.js bots that simplifies creating a bot.
 
+## Requirements
+
+The core requires at least Node.js 16
+
 ## Getting started
 
 The most basic packages needed are included, just run `npm install --save-dev` and you're good to go.
