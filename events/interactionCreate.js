@@ -21,13 +21,32 @@ exports.run = async (client, interaction) => {
             await command.execute(interaction)
         } catch (error) {
             console.error(error)
-            await interaction.reply({content: 'There was an error executing this command.', ephemeral: true})
+            const initial_reply = interaction.fetchReply()
+            if (initial_reply) {
+                return await interaction.followUp({
+                    content: 'Ha habido un error ejecutando el comando.',
+                    ephemeral: true
+                })
+            }
+            return await interaction.reply({content: 'There was an error executing this command.', ephemeral: true})
         }
     }
 
     async function executeMessageComponent() {
         const execute = client.executes.get(interaction.customId)
-        await execute.run(interaction)
+        try {
+            await execute.run(interaction)
+        } catch (error) {
+            console.error(error)
+            const initial_reply = interaction.fetchReply()
+            if (initial_reply) {
+                return await interaction.followUp({
+                    content: 'There was an error executing this command.',
+                    ephemeral: true
+                })
+            }
+            return await interaction.reply({content: 'There was an error executing this command.', ephemeral: true})
+        }
     }
 
 }
