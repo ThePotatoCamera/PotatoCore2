@@ -18,6 +18,7 @@ In order to start programming using this base, you'll need to set some environme
 - `CLIENTID`: ID of the client, needed to register the slash commands on the Discord API.
 - `GUILDID`: ID of the development server. Used to only register the commands on the server, avoiding the cache.
 - `ENVIRONMENT`: The environment the bot is running in. This is used to determine if we register the commands on the `GUILDID` server or to everyone.
+This variable must be put on `development` while you are testing in order to avoid the command cache.
 
 You only have to copy the `.env.example` file to `.env` and fill in the values.
 
